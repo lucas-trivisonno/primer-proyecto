@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Buscar</title>
+</head>
+<body>
+    <h1>Buscar</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ busqueda_form.as_p }}
+        <button type="submit">Buscar</button>
+    </form>
+
+    <h2>Resultados</h2>
+    <ul>
+        {% for resultado in resultados %}
+            <li>{{ resultado }}</li>
+        {% empty %}
+            <li></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+

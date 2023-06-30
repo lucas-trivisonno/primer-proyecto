@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Agregar Datos</title>
+</head>
+<body>
+    <h1>Agregar Datos</h1>
+
+    <h2>Marca</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ marca_form.as_p }}
+        <button type="submit">Guardar</button>
+    </form>
+
+    <h2>Auto</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ auto_form.as_p }}
+        <button type="submit">Guardar</button>
+    </form>
+
+    <h2>Conductor</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ conductor_form.as_p }}
+        <button type="submit">Guardar</button>
+    </form>
+</body>
+</html>
