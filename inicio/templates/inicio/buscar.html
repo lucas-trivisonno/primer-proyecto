@@ -5,22 +5,23 @@
     <title>Buscar</title>
 </head>
 <body>
-    <h1>Buscar</h1>
+    <h1>Buscar Autos</h1>
+<form method="post">
+  {% csrf_token %}
+  <input type="text" name="query" placeholder="Buscar por marca">
+  <button type="submit">Buscar</button>
+</form>
 
-    <form method="post">
-        {% csrf_token %}
-        {{ busqueda_form.as_p }}
-        <button type="submit">Buscar</button>
-    </form>
-
-    <h2>Resultados</h2>
-    <ul>
-        {% for resultado in resultados %}
-            <li>{{ resultado }}</li>
-        {% empty %}
-            <li></li>
-        {% endfor %}
-    </ul>
+{% if autos %}
+  <h2>Resultados:</h2>
+  <ul>
+    {% for auto in autos %}
+      <li>{{ auto }}</li>
+    {% empty %}
+      <li>No se encontraron autos.</li>
+    {% endfor %}
+  </ul>
+{% endif %}
 </body>
 </html>
 

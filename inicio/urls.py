@@ -3,6 +3,6 @@ from inicio import views
 
 urlpatterns = [
     path('',views.inicio, name='inicio'),
-    path('agregar-datos/', views.agregar_datos, name='agregar-datos'),
+    path('crear_autos/', views.crear_auto, name='crear_autos'),
     path('buscar/', views.buscar, name='buscar'),
 ]
