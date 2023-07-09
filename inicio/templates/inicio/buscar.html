@@ -1,27 +1,30 @@
-<!DOCTYPE html>
 
-<html>
-<head>
-    <title>Buscar</title>
-</head>
+{% extends 'base.html' %}
+
 <body>
-    <h1>Buscar Autos</h1>
-<form method="post">
-  {% csrf_token %}
-  <input type="text" name="query" placeholder="Buscar por marca">
-  <button type="submit">Buscar</button>
-</form>
+  {% block h1_header %} 
+  <h1>Buscar Autos</h1>
+  {% endblock h1_header %}
+  
+   {% block contenido %}
+   <form method="post">
+    {% csrf_token %}
+    <input type="text" name="query" placeholder="Buscar por marca">
+    <button type="submit">Buscar</button>
+  </form>
+  
+  {% if autos %}
+    <h2>Resultados:</h2>
+    <ul>
+      {% for auto in autos %}
+        <li>{{ auto }}</li>
+      {% empty %}
+        <li>No se encontraron autos.</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+  {% endblock contenido %}
 
-{% if autos %}
-  <h2>Resultados:</h2>
-  <ul>
-    {% for auto in autos %}
-      <li>{{ auto }}</li>
-    {% empty %}
-      <li>No se encontraron autos.</li>
-    {% endfor %}
-  </ul>
-{% endif %}
 </body>
 </html>
 

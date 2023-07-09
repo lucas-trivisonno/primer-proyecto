@@ -18,17 +18,17 @@
     </head>
     <body>
         <!-- Navigation-->
-        {% block nav %}
+       
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
                 <a class="navbar-brand" href={% url 'inicio' %}>inicio</a>
-                <a class="navbar-brand" href={% url 'agregar-datos' %}>agregardatos</a>
+                <a class="navbar-brand" href={% url 'crear_autos' %}>Crearautos</a>
                 <a class="navbar-brand" href={% url 'buscar' %}>buscardatos</a>
                 <a class="btn btn-primary" href="#signup">Sign Up</a>
                 
             </div>
         </nav>
-        {% endblock nav %}
+        
         <!-- Masthead-->
         {% block header %}
         <header class="masthead">
@@ -36,8 +36,10 @@
                 <div class="row justify-content-center">
                     <div class="col-xl-6">
                         <div class="text-center text-white">
-                            <!-- Page heading-->
+                            {% block h1_header %}
                             <h1 class="mb-5">Bienvenido a mi sitio web</h1>
+                            {% endblock h1_header %}
+                            
                             
                             <form class="form-subscribe" id="contactForm" data-sb-form-api-token="API_TOKEN">
                                 <!-- Email address input-->
@@ -67,7 +69,8 @@
         </header>
         {% endblock header %}
         <!-- Icons Grid-->
-        
+        {% block contenido %}
+        {% endblock contenido %}
         <!-- Footer-->
         <footer class="footer bg-light">
             <div class="container">

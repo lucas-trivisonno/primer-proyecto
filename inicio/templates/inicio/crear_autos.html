@@ -1,15 +1,21 @@
 <!DOCTYPE html>
+{% extends 'base.html' %}
 <html>
 <head>
     <title>Crear autos</title>
 </head>
 <body>
-    <h1>Crear Auto</h1>
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Guardar</button>
-</form>
+  {% block h1_header %}
+  <h1>Crear Auto</h1>
+  {% endblock h1_header %}
+  
+    {% block contenido %}<form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Guardar</button>
+    </form>
+    {% endblock contenido %}
+
 
 </body>
 </html>
