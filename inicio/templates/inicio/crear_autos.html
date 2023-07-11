@@ -9,7 +9,8 @@
   <h1>Crear Auto</h1>
   {% endblock h1_header %}
   
-    {% block contenido %}<form method="post">
+    {% block contenido %}
+    <form method="post">
       {% csrf_token %}
       {{ form.as_p }}
       <button type="submit">Guardar</button>
