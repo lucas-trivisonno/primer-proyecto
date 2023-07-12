@@ -7,13 +7,18 @@
   {% endblock h1_header %}
   
    {% block contenido %}
-   <form method="post">
+   
+   <button>
+    <a class="navbar-brand" href={% url 'crear_autos' %}>Crear auto</a>
+  </button>
+   
+   <form method="get">
     {% csrf_token %}
-    <input type="text" name="query" placeholder="Buscar por marca">
-    <button type="submit">Buscar</button>
+    {{ formulario }}
+    <button >Buscar</button>
   </form>
   
-  {% if autos %}
+  {% if auto %}
     <h2>Resultados:</h2>
     <ul>
       {% for auto in autos %}

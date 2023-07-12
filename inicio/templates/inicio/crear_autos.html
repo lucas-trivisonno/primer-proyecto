@@ -10,10 +10,10 @@
   {% endblock h1_header %}
   
     {% block contenido %}
-    <form method="post">
+    <form action="" method="POST">
       {% csrf_token %}
-      {{ form.as_p }}
-      <button type="submit">Guardar</button>
+      {{ formulario }}
+      <button>Crear</button>
     </form>
     {% endblock contenido %}
 
