@@ -17,7 +17,7 @@ def crear_auto(request):
         info = formulario.cleaned_data
         auto = Auto (marca=info['marca'], modelo=info['modelo'], anio=info['anio'])
         auto.save()
-        return redirect(request, 'inicio/buscar.html', )
+        return redirect('inicio:buscar' )
      else :
         return render(request, 'inicio/crear_autos.html', {'formulario' : formulario})
     
