@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+<html>
+<head>
+    <title> auto</title>
+</head>
+<body>
+  {% block h1_header %}
+  <h1>{{auto.marca}}</h1>
+  {% endblock h1_header %}
+  
+    {% block contenido %}
+   
+     <li>modelo: {{auto.modelo}}</li>
+     <li>año : {{auto.anio}}</li>
+     <li>descripcion : {{auto.descripcion}}</li>
+     
+    {% endblock contenido %}
+
+
+</body>
+</html>

@@ -1,4 +1,3 @@
-
 {% extends 'base.html' %}
 
 <body>
@@ -13,15 +12,23 @@
   </button>
    
    <form method="get">
-    {{ formulario }}
+    {{form}}
     <button >Buscar</button>
   </form>
   {% if autos %}
   {% for auto in autos %}
   <li>
     {{auto}}
-    <a href={%url 'inicio:eliminar' auto.id%}>eliminar</a>
-    <a href={%url 'inicio:modificar_auto' auto.id%}>modificar</a>
+    <button>
+        <a class="navbar-brand" href={%url 'inicio:mostrar_autos' auto.id%}>Ver mas</a>
+    </button>
+    <button>
+        <a class="navbar-brand" href={%url 'inicio:modificar_autos' auto.id%}>Modificar</a>
+    </button>
+    <button>
+        <a class="navbar-brand" href={%url 'inicio:eliminar_autos' auto.id%}>Eliminar</a>
+    </button>
+    
   </li>
   {% endfor %}
   {% else %}
