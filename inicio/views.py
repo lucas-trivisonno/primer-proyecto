@@ -8,6 +8,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
 # Create your views here.
 def inicio (request):
     return render(request,'inicio/inicio.html')
@@ -64,7 +65,7 @@ def inicio (request):
 #     formulario = ModificarAutoForm(initial={'marca':auto_a_modificar.marca, 'modelo':auto_a_modificar.modelo, 'anio':auto_a_modificar.anio})
 #     return render(request, 'inicio/modificar_auto.html', {'formulario':formulario})
     
-class CrearAuto(CreateView):
+class CrearAuto(LoginRequiredMixin,CreateView):
    model = Auto
    template_name = 'inicio/CBV/crear_autos_CBV.html'
    fields = ['marca', 'modelo', 'anio','descripcion']
@@ -75,18 +76,18 @@ class BuscarAuto (ListView):
     template_name = "inicio/CBV/buscar_autos_CBV.html"
     context_object_name = 'autos'
 
-class ModificarAuto(UpdateView):
+class ModificarAuto(LoginRequiredMixin, UpdateView):
     model = Auto
     template_name = "inicio/CBV/modificar_autos_CBV.html"
     fields = ['marca', 'modelo', 'anio','descripcion']
     success_url = reverse_lazy('inicio:buscar_autos')
 
-class EliminarAuto(DeleteView):
+class EliminarAuto(LoginRequiredMixin,DeleteView):
     model = Auto
     template_name = "inicio/CBV/eliminar_autos_CBV.html"
     success_url = reverse_lazy('inicio:buscar_autos')
 
-class MostrarAuto(DetailView):
+class MostrarAuto(LoginRequiredMixin,DetailView):
     model = Auto
     template_name = "inicio/CBV/mostrar_autos_CBV.html"
   

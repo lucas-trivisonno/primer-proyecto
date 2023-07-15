@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
-
+{% block titulo %}
+<title>Buscar auto</title>
+{% endblock titulo %}
 <body>
   {% block h1_header %} 
   <h1>Buscar Autos</h1>
@@ -13,19 +15,21 @@
    
    <form method="get">
     {{form}}
-    <button >Buscar</button>
+    
   </form>
   {% if autos %}
   {% for auto in autos %}
   <li>
     {{auto}}
-    <button>
+    <button class = "btn btn-primary">
         <a class="navbar-brand" href={%url 'inicio:mostrar_autos' auto.id%}>Ver mas</a>
     </button>
-    <button>
+    --
+    <button class = "btn btn-warning">
         <a class="navbar-brand" href={%url 'inicio:modificar_autos' auto.id%}>Modificar</a>
     </button>
-    <button>
+    --
+    <button class = "btn btn-danger">
         <a class="navbar-brand" href={%url 'inicio:eliminar_autos' auto.id%}>Eliminar</a>
     </button>
     

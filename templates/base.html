@@ -6,7 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
+        {% block titulo %}
         <title>Landing Page - Start Bootstrap Theme</title>
+        {% endblock titulo %}
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap icons-->
@@ -24,13 +26,21 @@
                 <a class="navbar-brand" href={% url 'inicio:inicio' %}>inicio</a>
                 <a class="navbar-brand" href={% url 'inicio:crear_autos' %}>Crear autos</a>
                 <a class="navbar-brand" href={% url 'inicio:buscar_autos' %}>buscar autos</a>
-                <a class="btn btn-primary" href="#signup">Sign Up</a>
-                
+                {% if request.user.is_authenticated %}
+                {% if request.user.infoextra.avatar %}
+                <img src={{request.user.infoextra.avatar.url}} alt="" height='40px'>
+                {% endif %}
+                <a class="navbar-brand" href={% url 'usuario:editar_perfil' %}>{{request.user.username}}</a>
+                <a class="btn btn-secondary" href={% url 'usuario:logout' %}>Logout</a>
+                {% else %}
+                <a class="btn btn-primary" href={% url 'usuario:login' %}>Login</a>
+                <a class="btn btn-primary" href={% url 'usuario:registrarse' %}>Registrarse</a>
+                {% endif %}
             </div>
         </nav>
         
         <!-- Masthead-->
-        {% block header %}
+        
         <header class="masthead">
             <div class="container position-relative">
                 <div class="row justify-content-center">
@@ -39,15 +49,12 @@
                             {% block h1_header %}
                             <h1 class="mb-5">Bienvenido a mi sitio web</h1>
                             {% endblock h1_header %}
-                            
-                            
-                            
                         </div>
                     </div>
                 </div>
             </div>
         </header>
-        {% endblock header %}
+        
         <!-- Icons Grid-->
         {% block contenido %}
         {% endblock contenido %}
