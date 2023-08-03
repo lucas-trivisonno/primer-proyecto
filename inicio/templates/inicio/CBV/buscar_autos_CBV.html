@@ -4,19 +4,16 @@
 {% endblock titulo %}
 <body>
   {% block h1_header %} 
-  <h1>Buscar Autos</h1>
+  <h1>Listar Autos</h1>
   {% endblock h1_header %}
   
    {% block contenido %}
    
    <button>
     <a class="navbar-brand" href={% url 'inicio:crear_autos' %}>Crear auto</a>
-  </button>
+   </button>
    
-   <form method="get">
-    {{form}}
-    
-  </form>
+   
   {% if autos %}
   {% for auto in autos %}
   <li>

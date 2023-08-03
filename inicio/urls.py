@@ -5,10 +5,8 @@ app_name ='inicio'
 
 urlpatterns = [
     path('',views.inicio, name='inicio'),
-    #  path('crear_autos/', views.crear_auto, name='crear_autos'),
-    # path('buscar/', views.buscar, name='buscar'),
-    # path('eliminar/<int:auto_id>/', views.eliminar, name='eliminar'),
-    # path('modificar_auto/<int:auto_id>/', views.modificar_auto, name='modificar_auto'),
+    path('acerca_de_mi/', views.acerca_de_mi, name='acerca_de_mi'),
+    
      
     
     path('crear_autos/', views.CrearAuto.as_view(), name='crear_autos'),
