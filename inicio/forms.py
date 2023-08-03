@@ -5,6 +5,7 @@ class AutoFormPadre(forms.Form):
     modelo = forms.CharField(max_length=100)
     anio = forms.IntegerField()
     descripcion = RichTextFormField()
+    imagen=forms.ImageField()
     
 class AutoForm(AutoFormPadre):
     ...

@@ -11,7 +11,7 @@
   {% endblock h1_header %}
   
     {% block contenido %}
-    <form action={% url 'inicio:crear_autos' %} method="post">
+    <form action={% url 'inicio:crear_autos' %} method="post" enctype='multipart/form-data'>
       {% csrf_token %}
       <table>
       {{form}}

@@ -6,6 +6,7 @@ class Auto(models.Model):
     modelo = models.CharField(max_length=100)
     anio = models.IntegerField()
     descripcion = RichTextField(null= True)
+    imagen = models.ImageField( upload_to="autos", null=True , blank=True )
 
     def __str__(self):
         return f"{self.marca} {self.modelo} ({self.anio})"

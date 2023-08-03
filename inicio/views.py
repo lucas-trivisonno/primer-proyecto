@@ -21,7 +21,7 @@ def acerca_de_mi (request):
 class CrearAuto(LoginRequiredMixin,CreateView):
    model = Auto
    template_name = 'inicio/CBV/crear_autos_CBV.html'
-   fields = ['marca', 'modelo', 'anio','descripcion']
+   fields = ['marca', 'modelo', 'anio','descripcion','imagen']
    success_url = reverse_lazy('inicio:buscar_autos')
    
 class BuscarAuto (ListView):
@@ -34,7 +34,7 @@ class BuscarAuto (ListView):
 class ModificarAuto(LoginRequiredMixin, UpdateView):
     model = Auto
     template_name = "inicio/CBV/modificar_autos_CBV.html"
-    fields = ['marca', 'modelo', 'anio','descripcion']
+    fields = ['marca', 'modelo', 'anio','descripcion', 'imagen']
     success_url = reverse_lazy('inicio:buscar_autos')
 
 class EliminarAuto(LoginRequiredMixin,DeleteView):

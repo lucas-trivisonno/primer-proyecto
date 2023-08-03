@@ -15,7 +15,9 @@
      <li>modelo: {{auto.modelo}}</li>
      <li>año : {{auto.anio}}</li>
      <li>descripcion : {{auto.descripcion |safe}}</li>
-     
+     {% if auto.imagen %}
+     <li>imagen: <img src={{auto.imagen.url}} alt="imagen del auto"></li>
+     {% endif %}
     {% endblock contenido %}
 
 
